@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Acerca de{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section>
+            <h2>Our Mission</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu nec ex ultricies tincidunt.
+                Curabitur consequat fermentum odio, ut dictum nisi bibendum a. Vestibulum euismod ligula non nunc
+                venenatis, at vehicula orci gravida.</p>
+        </section>
+
+        <section>
+            <h2>Our Team</h2>
+            <div class="team-member">
+                <img src="{% static 'img/john.avif' %}" alt="CEO" class="team-image" width="200" height="200">
+                <h3>John Doe</h3>
+                <p>CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'img/jane.avif' %}" alt="Marketing Manager" class="team-image" width="200" height="200">
+                <h3>Jane Smith</h3>
+                <p>Marketing Manager</p>
+            </div>
+        </section>
+        <section>
+            <h2>Contact Us</h2>
+            <p>Email: info@example.com</p>
+            <p>Phone: 123-456-7890</p>
+            <p>Address: 123 Main Street, City, Country</p>
+        </section>
+    </div>
+{% endblock %}

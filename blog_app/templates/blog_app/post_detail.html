@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <h2 class="title">{{ post.title }}</h2>
+        <h4 class="subtitle">{{ post.description }}</h4>
+        <h5 class="date">{{ post.publish_date }}</h5>
+        <h5 class="author">by Author</h5>
+        <p class="text">{{ post.text|linebreaks }}</p>
+    </section>
+
+    {% if user.is_authenticated %}
+        <section class="section">
+            <h2 class="title">Comments</h2>
+            <form method="post" action="{% url 'blog_app:add_comment_to_post' post.pk %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Comment</button>
+            </form>
+        </section>
+    {% else %}
+        <section class="section">
+            <p>You must <a href="{% url 'accounts:login' %}">login</a> to comment</p>
+        </section>
+    {% endif %}
+
+    <section class="section">
+        <h3 class="title">Comments</h3>
+        <ul class="comments">
+            {% for comment in comments %}
+                <li class="comment_author">{{ comment.author }} - {{ comment.created_date|date:"d/m/Y" }}</li>
+                <li class="comment">{{ comment.text }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

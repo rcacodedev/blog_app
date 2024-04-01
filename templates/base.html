@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}BLOG NAME{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% block styles %}{% endblock %}
+    </head>
+    <body>
+        <header class="header">
+            <section class="header__nav">
+                <nav class="header__nav">
+                    <section class="header__section">
+                        <h2 class="header__title"><a href="{% url 'blog_app:home' %}">Home</a></h2>
+                        {% if user.is_authenticated %}
+                            <p class="header__p">Hello, {{ user.username }}</p>
+                            <form action="{% url 'accounts:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="header__button" type="submit">Logout</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'accounts:login' %}">Login</a>
+                        {% endif %}
+                    </section>
+                    <br class="header__br">
+                    <ul class="header__ul header-box">
+                        <li><a href="{% url 'blog_app:cine' %}">Cine</a></li>
+                        <li><a href="{% url 'blog_app:tv' %}">TV</a></li>
+                        <li><a href="{% url 'blog_app:literatura' %}">Literatura</a></li>
+                        <li><a href="{% url 'blog_app:videojuegos' %}">Videojuegos</a></li>
+                        <li><a href="{% url 'blog_app:podcasts' %}">Podcasts</a></li>
+                        <li><a href="{% url 'blog_app:about' %}">About</a></li>
+                        <form method="get" action="{% url 'blog_app:search' %}">
+                            <input type="text" name="query" placeholder="Search">
+                            <button class="header__button" type="submit">Buscar</button>
+                        </form>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+        <main class="main">
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="footer">
+            <p class="footer__p">&copy; <span id="CurrentYear"></span> BLOG NAME. Todos los derechos reservados.</p>
+        </footer>
+
+        <script>
+            document.getElementById("CurrentYear").innerHTML = new Date().getFullYear();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,113 @@
+/* Estilos para la sección de publicaciones en la página de inicio */
+
+.section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.date {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #888;
+}
+
+.author {
+    font-size: 14px;
+    color: #888;
+}
+
+.text {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Estilos para el formulario de comentarios */
+form {
+    margin-bottom: 20px;
+    width: auto;
+}
+
+form button {
+    background-color: #8f8f8f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilos para la lista de comentarios */
+.comments {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
